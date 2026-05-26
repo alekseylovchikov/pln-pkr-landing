@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Planning Poker — оценка задач за секунды</title>
+<meta name="description" content="Realtime Planning Poker для Agile-команд. Создавайте комнату, делитесь ссылкой, голосуйте за оценки задач в реальном времени. Без регистрации." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#">
+      <span class="brand__logo">♠</span>
+      <span class="brand__name">Planning Poker</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#features">Возможности</a>
+      <a href="#how">Как работает</a>
+      <a href="#stack">Стек</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--primary btn--sm" href="#cta">Запустить</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="badge">⚡ Realtime · без регистрации</span>
+      <h1>Оценивайте задачи за&nbsp;секунды, а&nbsp;не за&nbsp;митинги</h1>
+      <p class="lead">
+        Planning Poker для распределённых команд. Создайте комнату, отправьте ссылку,
+        получите консенсус. Никаких аккаунтов, никаких баз данных — только ваша команда и&nbsp;карты.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="#cta">Создать комнату</a>
+        <a class="btn btn--ghost btn--lg" href="#how">Как это работает</a>
+      </div>
+      <ul class="hero__bullets">
+        <li>✓ Один админ на комнату</li>
+        <li>✓ Шкала Fibonacci + «???»</li>
+        <li>✓ Средняя, медиана, agreement %</li>
+      </ul>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="cards">
+        <div class="card card--1">1</div>
+        <div class="card card--2">2</div>
+        <div class="card card--3">3</div>
+        <div class="card card--5 card--featured">5</div>
+        <div class="card card--8">8</div>
+        <div class="card card--13">13</div>
+        <div class="card card--q">?</div>
+      </div>
+      <div class="hero__glow"></div>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section">
+  <div class="container">
+    <h2 class="section__title">Всё, что нужно для оценки спринта</h2>
+    <p class="section__sub">Минимум кнопок, максимум сигнала. Один экран — и команда в&nbsp;потоке.</p>
+
+    <div class="grid grid--3">
+      <div class="feature">
+        <div class="feature__icon">⚡</div>
+        <h3>Realtime голосование</h3>
+        <p>Карты появляются мгновенно через Socket.IO. Видно, кто проголосовал, но не&nbsp;что — до раскрытия.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">🔗</div>
+        <h3>Ссылка вместо логина</h3>
+        <p>Кидаете <code>#room=ABC123</code> в&nbsp;чат — команда заходит за&nbsp;один клик. Без email, без паролей.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">👑</div>
+        <h3>Один админ — порядок</h3>
+        <p>Создатель управляет раскрытием, сбросом и&nbsp;может кикнуть участника. Уходит админ — закрывается комната.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">📊</div>
+        <h3>Честная статистика</h3>
+        <p>Среднее, медиана, min/max и&nbsp;процент согласия команды. Никаких догадок «вроде сошлись».</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">🔄</div>
+        <h3>Автореконнект</h3>
+        <p>Закрыли вкладку или упал Wi-Fi — вернётесь в&nbsp;ту&nbsp;же комнату с&nbsp;тем&nbsp;же именем.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">🪶</div>
+        <h3>Никаких БД</h3>
+        <p>Состояние комнаты&nbsp;— в&nbsp;памяти сервера, идентичность&nbsp;— в&nbsp;localStorage. Запустить можно где угодно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Три шага до оценки</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <h3>Создайте комнату</h3>
+        <p>Введите имя — получите ID комнаты и&nbsp;ссылку для команды.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <h3>Голосуйте картой</h3>
+        <p>0.5, 1, 2, 3, 5, 8, 13 или «???». Карты скрыты, пока админ не&nbsp;откроет.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <h3>Раскройте и&nbsp;обсудите</h3>
+        <p>Получите распределение, agreement&nbsp;%&nbsp;— и&nbsp;принимайте решение.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" class="section">
+  <div class="container">
+    <h2 class="section__title">Лёгкий и&nbsp;понятный стек</h2>
+    <p class="section__sub">Open source. Запускается на&nbsp;любом VPS, Railway или локально за&nbsp;30&nbsp;секунд.</p>
+    <div class="stack">
+      <div class="chip">Node.js</div>
+      <div class="chip">Express</div>
+      <div class="chip">Socket.IO</div>
+      <div class="chip">React</div>
+      <div class="chip">Vite</div>
+      <div class="chip">localStorage</div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="cta">
+  <div class="container cta__inner">
+    <h2>Готовы оценить следующий спринт?</h2>
+    <p>Запустите свою комнату прямо сейчас — это бесплатно и&nbsp;без регистрации.</p>
+    <a class="btn btn--primary btn--lg" href="/">Создать комнату →</a>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="container container--narrow">
+    <h2 class="section__title">Частые вопросы</h2>
+    <details class="faq">
+      <summary>Нужна ли регистрация?</summary>
+      <p>Нет. Имя и&nbsp;последняя комната хранятся в&nbsp;вашем браузере (localStorage).</p>
+    </details>
+    <details class="faq">
+      <summary>Что будет, если админ выйдет?</summary>
+      <p>Комната закрывается. Это сделано осознанно: оценочная сессия привязана к&nbsp;ведущему.</p>
+    </details>
+    <details class="faq">
+      <summary>Где хранятся голоса?</summary>
+      <p>Только в&nbsp;памяти сервера во&nbsp;время сессии. После сброса или закрытия комнаты&nbsp;— ничего не&nbsp;остаётся.</p>
+    </details>
+    <details class="faq">
+      <summary>Можно ли захостить у&nbsp;себя?</summary>
+      <p>Да. В&nbsp;репозитории есть <code>railway.json</code> и&nbsp;инструкции в&nbsp;README — два&nbsp;npm-команды и&nbsp;готово.</p>
+    </details>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="brand">
+      <span class="brand__logo">♠</span>
+      <span class="brand__name">Planning Poker</span>
+    </div>
+    <p class="footer__note">© 2026 · Realtime planning poker для людей, которые ценят своё время.</p>
+  </div>
+</footer>
+
+</body>
+</html>
