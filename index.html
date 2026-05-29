@@ -17,11 +17,12 @@
     </a>
     <nav class="nav__links">
       <a href="#features">Features</a>
+      <a href="#extension">Chrome</a>
       <a href="#how">How it works</a>
       <a href="#stack">Stack</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--primary btn--sm" href="https://pln-pkr-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Launch</a>
+    <a class="btn btn--primary btn--sm" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Launch</a>
   </div>
 </header>
 
@@ -35,8 +36,9 @@
         reach consensus. No accounts, no databases — just your team and the&nbsp;cards.
       </p>
       <div class="hero__cta">
-        <a class="btn btn--primary btn--lg" href="https://pln-pkr-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Create a room</a>
+        <a class="btn btn--primary btn--lg" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Create a room</a>
         <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
+        <a class="btn btn--chrome btn--lg" href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Chrome extension</a>
       </div>
       <ul class="hero__bullets">
         <li>✓ One admin per room</li>
@@ -100,7 +102,41 @@
   </div>
 </section>
 
-<section id="how" class="section section--alt">
+<section id="extension" class="section section--alt">
+  <div class="container">
+    <div class="extension">
+      <div class="extension__copy">
+        <span class="badge badge--chrome">Chrome extension</span>
+        <h2 class="extension__title">Scrum Poker in your browser toolbar</h2>
+        <p class="extension__lead">
+          Same planning poker flow — open from the extension icon, no extra tab hunt.
+          Custom decks per room, hidden votes, one-click reveal with automatic average.
+          No accounts, no tracking.
+        </p>
+        <a
+          class="btn btn--chrome btn--lg"
+          href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Add to Chrome →</a>
+        <p class="extension__meta">
+          <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Scrum Poker</a>
+          · v1.0.0 · Russian UI
+        </p>
+      </div>
+      <ul class="extension__list">
+        <li>Instant rooms and invite by link</li>
+        <li>Your own deck in each room (e.g. 0, 1, 2, 3, 5, 8, 13, 21, ?, ☕)</li>
+        <li>Cards stay hidden until everyone has voted</li>
+        <li>Reveal in one click — numeric average calculated automatically</li>
+        <li>New round and live deck changes for the whole room</li>
+        <li>Clean dark theme, nothing extra</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="section">
   <div class="container">
     <h2 class="section__title">Three steps to an estimate</h2>
     <div class="steps">
@@ -142,7 +178,7 @@
   <div class="container cta__inner">
     <h2>Ready to estimate your next sprint?</h2>
     <p>Spin up your room right now — it’s free and no sign-up required.</p>
-    <a class="btn btn--primary btn--lg" href="https://pln-pkr-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Create a room →</a>
+    <a class="btn btn--primary btn--lg" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Create a room →</a>
   </div>
 </section>
 
@@ -165,6 +201,14 @@
       <summary>Can I self-host?</summary>
       <p>Yes. The repo ships with <code>railway.json</code> and instructions in&nbsp;the README — two&nbsp;npm commands and you’re done.</p>
     </details>
+    <details class="faq">
+      <summary>Is there a Chrome extension?</summary>
+      <p>
+        Yes —
+        <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Scrum Poker in the Chrome Web Store</a>.
+        Click the icon, enter your name, create or join a room — same idea as the web app, with customizable decks per room.
+      </p>
+    </details>
   </div>
 </section>
 
@@ -174,7 +218,11 @@
       <span class="brand__logo">♠</span>
       <span class="brand__name">Planning Poker</span>
     </div>
-    <p class="footer__note">© 2026 · Realtime planning poker for people who value their time.</p>
+    <p class="footer__note">
+      © 2026 · Realtime planning poker for people who value their time.
+      ·
+      <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Chrome extension</a>
+    </p>
   </div>
 </footer>
 
