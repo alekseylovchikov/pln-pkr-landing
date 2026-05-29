@@ -1,230 +1,322 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Planning Poker — estimate tasks in seconds</title>
-<meta name="description" content="Realtime Planning Poker for Agile teams. Spin up a room, share the link, vote on estimates in real time. No sign-up required." />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-<header class="nav">
-  <div class="container nav__inner">
-    <a class="brand" href="#">
-      <span class="brand__logo">♠</span>
-      <span class="brand__name">Planning Poker</span>
-    </a>
-    <nav class="nav__links">
-      <a href="#features">Features</a>
-      <a href="#extension">Chrome</a>
-      <a href="#how">How it works</a>
-      <a href="#stack">Stack</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn btn--primary btn--sm" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Launch</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__copy">
-      <span class="badge">⚡ Realtime · no sign-up</span>
-      <h1>Estimate tasks<br/>without the&nbsp;drama</h1>
-      <p class="lead">
-        Planning Poker for distributed teams. Create a room, share the link,
-        reach consensus. No accounts, no databases — just your team and the&nbsp;cards.
-      </p>
-      <div class="hero__cta">
-        <a class="btn btn--primary btn--lg" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Create a room</a>
-        <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
-        <a class="btn btn--chrome btn--lg" href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Chrome extension</a>
-      </div>
-      <ul class="hero__bullets">
-        <li>✓ One admin per room</li>
-        <li>✓ Fibonacci scale + “???”</li>
-        <li>✓ Average, median, agreement %</li>
-      </ul>
-    </div>
-
-    <div class="hero__visual" aria-hidden="true">
-      <div class="cards">
-        <div class="card card--1">1</div>
-        <div class="card card--2">2</div>
-        <div class="card card--3">3</div>
-        <div class="card card--5 card--featured">5</div>
-        <div class="card card--8">8</div>
-        <div class="card card--13">13</div>
-        <div class="card card--q">?</div>
-      </div>
-      <div class="hero__glow"></div>
-    </div>
-  </div>
-</section>
-
-<section id="features" class="section">
-  <div class="container">
-    <h2 class="section__title">Everything you need to estimate a sprint</h2>
-    <p class="section__sub">Minimal buttons, maximum signal. One screen — and the team is in&nbsp;flow.</p>
-
-    <div class="grid grid--3">
-      <div class="feature">
-        <div class="feature__icon">⚡</div>
-        <h3>Realtime voting</h3>
-        <p>Cards appear instantly via Socket.IO. You can see who has voted, but not&nbsp;what — until the reveal.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">🔗</div>
-        <h3>A link instead of a login</h3>
-        <p>Drop <code>#room=ABC123</code> into chat — the team joins in&nbsp;one click. No email, no passwords.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">👑</div>
-        <h3>One admin keeps order</h3>
-        <p>The creator controls reveal, reset, and can kick a&nbsp;participant. When the admin leaves, the room closes.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">📊</div>
-        <h3>Honest stats</h3>
-        <p>Average, median, min/max and the team’s agreement&nbsp;%. No more “I think we&nbsp;agreed.”</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">🔄</div>
-        <h3>Auto-reconnect</h3>
-        <p>Closed the tab or lost Wi-Fi? You’re back in&nbsp;the same room under the same name.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">🪶</div>
-        <h3>No database</h3>
-        <p>Room state lives in&nbsp;server memory, identity in&nbsp;localStorage. Deploy it&nbsp;anywhere.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="extension" class="section section--alt">
-  <div class="container">
-    <div class="extension">
-      <div class="extension__copy">
-        <span class="badge badge--chrome">Chrome extension</span>
-        <h2 class="extension__title">Scrum Poker in your browser toolbar</h2>
-        <p class="extension__lead">
-          Same planning poker flow — open from the extension icon, no extra tab hunt.
-          Custom decks per room, hidden votes, one-click reveal with automatic average.
-          No accounts, no tracking.
-        </p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planning Poker — estimate tasks in seconds</title>
+    <meta
+      name="description"
+      content="Realtime Planning Poker for Agile teams. Spin up a room, share the link, vote on estimates in real time. No sign-up required."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container nav__inner">
+        <a class="brand" href="#">
+          <span class="brand__logo">♠</span>
+          <span class="brand__name">Planning Poker</span>
+        </a>
+        <nav class="nav__links">
+          <a href="#features">Features</a>
+          <a href="#extension">Chrome</a>
+          <a href="#how">How it works</a>
+          <a href="#stack">Stack</a>
+          <a href="#faq">FAQ</a>
+        </nav>
         <a
-          class="btn btn--chrome btn--lg"
-          href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+          class="btn btn--primary btn--sm"
+          href="https://pln-pkr-production-d571.up.railway.app/"
           target="_blank"
           rel="noopener noreferrer"
-        >Add to Chrome →</a>
-        <p class="extension__meta">
-          <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Scrum Poker</a>
-          · v1.0.0 · Russian UI
+          >Launch</a
+        >
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="badge">⚡ Realtime · no sign-up</span>
+          <h1>Estimate tasks<br />without the&nbsp;drama</h1>
+          <p class="lead">
+            Planning Poker for distributed teams. Create a room, share the link,
+            reach consensus. No accounts, no databases — just your team and
+            the&nbsp;cards.
+          </p>
+          <div class="hero__cta">
+            <a
+              class="btn btn--primary btn--lg"
+              href="https://pln-pkr-production-d571.up.railway.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Create a room</a
+            >
+            <a class="btn btn--ghost btn--lg" href="#how">How it works</a>
+            <a
+              class="btn btn--chrome btn--lg"
+              href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Chrome extension</a
+            >
+          </div>
+          <ul class="hero__bullets">
+            <li>✓ One admin per room</li>
+            <li>✓ Fibonacci scale + “???”</li>
+            <li>✓ Average, median, agreement %</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="cards">
+            <div class="card card--1">1</div>
+            <div class="card card--2">2</div>
+            <div class="card card--3">3</div>
+            <div class="card card--5 card--featured">5</div>
+            <div class="card card--8">8</div>
+            <div class="card card--13">13</div>
+            <div class="card card--q">?</div>
+          </div>
+          <div class="hero__glow"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section__title">Everything you need to estimate a sprint</h2>
+        <p class="section__sub">
+          Minimal buttons, maximum signal. One screen — and the team is
+          in&nbsp;flow.
+        </p>
+
+        <div class="grid grid--3">
+          <div class="feature">
+            <div class="feature__icon">⚡</div>
+            <h3>Realtime voting</h3>
+            <p>
+              Cards appear instantly via Socket.IO. You can see who has voted,
+              but not&nbsp;what — until the reveal.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">🔗</div>
+            <h3>A link instead of a login</h3>
+            <p>
+              Drop <code>#room=ABC123</code> into chat — the team joins
+              in&nbsp;one click. No email, no passwords.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">👑</div>
+            <h3>One admin keeps order</h3>
+            <p>
+              The creator controls reveal, reset, and can kick
+              a&nbsp;participant. When the admin leaves, the room closes.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">📊</div>
+            <h3>Honest stats</h3>
+            <p>
+              Average, median, min/max and the team’s agreement&nbsp;%. No more
+              “I think we&nbsp;agreed.”
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">🔄</div>
+            <h3>Auto-reconnect</h3>
+            <p>
+              Closed the tab or lost Wi-Fi? You’re back in&nbsp;the same room
+              under the same name.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature__icon">🪶</div>
+            <h3>No database</h3>
+            <p>
+              Room state lives in&nbsp;server memory, identity
+              in&nbsp;localStorage. Deploy it&nbsp;anywhere.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="extension" class="section section--alt">
+      <div class="container">
+        <div class="extension">
+          <div class="extension__copy">
+            <span class="badge badge--chrome">Chrome extension</span>
+            <h2 class="extension__title">
+              Scrum Poker in your browser toolbar
+            </h2>
+            <p class="extension__lead">
+              Same planning poker flow — open from the extension icon, no extra
+              tab hunt. Custom decks per room, hidden votes, one-click reveal
+              with automatic average. No accounts, no tracking.
+            </p>
+            <a
+              class="btn btn--chrome btn--lg"
+              href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Add to Chrome →</a
+            >
+            <p class="extension__meta">
+              <a
+                href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Scrum Poker</a
+              >
+              · v1.0.0 · Russian UI
+            </p>
+          </div>
+          <ul class="extension__list">
+            <li>Instant rooms and invite by link</li>
+            <li>
+              Your own deck in each room (e.g. 0, 1, 2, 3, 5, 8, 13, 21, ?, ☕)
+            </li>
+            <li>Cards stay hidden until everyone has voted</li>
+            <li>
+              Reveal in one click — numeric average calculated automatically
+            </li>
+            <li>New round and live deck changes for the whole room</li>
+            <li>Clean dark theme, nothing extra</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <h2 class="section__title">Three steps to an estimate</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step__num">1</div>
+            <h3>Create a room</h3>
+            <p>
+              Enter your name — get a room ID and a&nbsp;link to share with the
+              team.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <h3>Vote with a card</h3>
+            <p>
+              0.5, 1, 2, 3, 5, 8, 13 or “???”. Cards stay hidden until the admin
+              reveals them.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <h3>Reveal &amp; discuss</h3>
+            <p>
+              See the distribution and agreement&nbsp;%&nbsp;— and make the
+              call.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="container">
+        <h2 class="section__title">A light, no-nonsense stack</h2>
+        <p class="section__sub">
+          Open source. Runs on&nbsp;any VPS, on&nbsp;Railway, or locally
+          in&nbsp;30&nbsp;seconds.
+        </p>
+        <div class="stack">
+          <div class="chip">Node.js</div>
+          <div class="chip">Express</div>
+          <div class="chip">Socket.IO</div>
+          <div class="chip">React</div>
+          <div class="chip">Vite</div>
+          <div class="chip">localStorage</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="cta">
+      <div class="container cta__inner">
+        <h2>Ready to estimate your next sprint?</h2>
+        <p>Spin up your room right now — it’s free and no sign-up required.</p>
+        <a
+          class="btn btn--primary btn--lg"
+          href="https://pln-pkr-production-d571.up.railway.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Create a room →</a
+        >
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container container--narrow">
+        <h2 class="section__title">Frequently asked questions</h2>
+        <details class="faq">
+          <summary>Do I need to sign up?</summary>
+          <p>
+            No. Your name and last room are kept in&nbsp;your browser
+            (localStorage).
+          </p>
+        </details>
+        <details class="faq">
+          <summary>What happens if the admin leaves?</summary>
+          <p>
+            The room closes. That’s by design: the estimation session is tied
+            to&nbsp;its host.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Where are the votes stored?</summary>
+          <p>
+            Only in&nbsp;server memory during the session. After a&nbsp;reset or
+            when the room closes — nothing is kept.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Can I self-host?</summary>
+          <p>
+            Yes. The repo ships with <code>railway.json</code> and instructions
+            in&nbsp;the README — two&nbsp;npm commands and you’re done.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Is there a Chrome extension?</summary>
+          <p>
+            Yes —
+            <a
+              href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Scrum Poker in the Chrome Web Store</a
+            >. Click the icon, enter your name, create or join a room — same
+            idea as the web app, with customizable decks per room.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="brand">
+          <span class="brand__logo">♠</span>
+          <span class="brand__name">Planning Poker</span>
+        </div>
+        <p class="footer__note">
+          © 2026 · Realtime planning poker for people who value their time. ·
+          <a
+            href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Chrome extension</a
+          >
         </p>
       </div>
-      <ul class="extension__list">
-        <li>Instant rooms and invite by link</li>
-        <li>Your own deck in each room (e.g. 0, 1, 2, 3, 5, 8, 13, 21, ?, ☕)</li>
-        <li>Cards stay hidden until everyone has voted</li>
-        <li>Reveal in one click — numeric average calculated automatically</li>
-        <li>New round and live deck changes for the whole room</li>
-        <li>Clean dark theme, nothing extra</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="how" class="section">
-  <div class="container">
-    <h2 class="section__title">Three steps to an estimate</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step__num">1</div>
-        <h3>Create a room</h3>
-        <p>Enter your name — get a room ID and a&nbsp;link to share with the team.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">2</div>
-        <h3>Vote with a card</h3>
-        <p>0.5, 1, 2, 3, 5, 8, 13 or “???”. Cards stay hidden until the admin reveals them.</p>
-      </div>
-      <div class="step">
-        <div class="step__num">3</div>
-        <h3>Reveal &amp; discuss</h3>
-        <p>See the distribution and agreement&nbsp;%&nbsp;— and make the call.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="stack" class="section">
-  <div class="container">
-    <h2 class="section__title">A light, no-nonsense stack</h2>
-    <p class="section__sub">Open source. Runs on&nbsp;any VPS, on&nbsp;Railway, or locally in&nbsp;30&nbsp;seconds.</p>
-    <div class="stack">
-      <div class="chip">Node.js</div>
-      <div class="chip">Express</div>
-      <div class="chip">Socket.IO</div>
-      <div class="chip">React</div>
-      <div class="chip">Vite</div>
-      <div class="chip">localStorage</div>
-    </div>
-  </div>
-</section>
-
-<section id="cta" class="cta">
-  <div class="container cta__inner">
-    <h2>Ready to estimate your next sprint?</h2>
-    <p>Spin up your room right now — it’s free and no sign-up required.</p>
-    <a class="btn btn--primary btn--lg" href="https://pln-pkr.onrender.com/" target="_blank" rel="noopener noreferrer">Create a room →</a>
-  </div>
-</section>
-
-<section id="faq" class="section">
-  <div class="container container--narrow">
-    <h2 class="section__title">Frequently asked questions</h2>
-    <details class="faq">
-      <summary>Do I need to sign up?</summary>
-      <p>No. Your name and last room are kept in&nbsp;your browser (localStorage).</p>
-    </details>
-    <details class="faq">
-      <summary>What happens if the admin leaves?</summary>
-      <p>The room closes. That’s by design: the estimation session is tied to&nbsp;its host.</p>
-    </details>
-    <details class="faq">
-      <summary>Where are the votes stored?</summary>
-      <p>Only in&nbsp;server memory during the session. After a&nbsp;reset or when the room closes — nothing is kept.</p>
-    </details>
-    <details class="faq">
-      <summary>Can I self-host?</summary>
-      <p>Yes. The repo ships with <code>railway.json</code> and instructions in&nbsp;the README — two&nbsp;npm commands and you’re done.</p>
-    </details>
-    <details class="faq">
-      <summary>Is there a Chrome extension?</summary>
-      <p>
-        Yes —
-        <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Scrum Poker in the Chrome Web Store</a>.
-        Click the icon, enter your name, create or join a room — same idea as the web app, with customizable decks per room.
-      </p>
-    </details>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="brand">
-      <span class="brand__logo">♠</span>
-      <span class="brand__name">Planning Poker</span>
-    </div>
-    <p class="footer__note">
-      © 2026 · Realtime planning poker for people who value their time.
-      ·
-      <a href="https://chromewebstore.google.com/detail/scrum-poker/lghmbllobcefeoceeodbobhhdhijmpon" target="_blank" rel="noopener noreferrer">Chrome extension</a>
-    </p>
-  </div>
-</footer>
-
-</body>
+    </footer>
+  </body>
 </html>
