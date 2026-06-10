@@ -3,15 +3,22 @@ import { Button } from "@/components/retroui/Button";
 import { Card } from "@/components/retroui/Card";
 import { Text } from "@/components/retroui/Text";
 import { CHROME_EXTENSION_URL } from "@/lib/constants";
+import { FaMugHot } from "react-icons/fa6";
+import { HiCheck } from "react-icons/hi2";
+import type { ReactNode } from "react";
 
-const EXTENSION_POINTS = [
+const EXTENSION_POINTS: ReactNode[] = [
   "Instant rooms and invite by link",
-  "Your own deck in each room (e.g. 0, 1, 2, 3, 5, 8, 13, 21, ?, ☕)",
+  <>
+    Your own deck in each room (e.g. 0, 1, 2, 3, 5, 8, 13, 21, ?,{" "}
+    <FaMugHot className="inline size-3.5 align-text-bottom" aria-hidden="true" />
+    )
+  </>,
   "Cards stay hidden until everyone has voted",
   "Reveal in one click — numeric average calculated automatically",
   "New round and live deck changes for the whole room",
   "Clean light UI, nothing extra",
-] as const;
+];
 
 export function Extension() {
   return (
@@ -62,14 +69,15 @@ export function Extension() {
           <Card className="block w-full">
             <Card.Content>
               <ul className="space-y-3">
-                {EXTENSION_POINTS.map((point) => (
+                {EXTENSION_POINTS.map((point, index) => (
                   <li
-                    key={point}
+                    key={index}
                     className="flex gap-3 text-sm text-muted-foreground"
                   >
-                    <span className="font-bold text-foreground" aria-hidden="true">
-                      ✓
-                    </span>
+                    <HiCheck
+                      className="mt-0.5 size-4 shrink-0 text-foreground"
+                      aria-hidden="true"
+                    />
                     {point}
                   </li>
                 ))}

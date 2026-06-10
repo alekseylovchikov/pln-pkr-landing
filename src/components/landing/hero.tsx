@@ -2,6 +2,7 @@ import { Badge } from "@/components/retroui/Badge";
 import { Button } from "@/components/retroui/Button";
 import { Text } from "@/components/retroui/Text";
 import { APP_URL, CHROME_EXTENSION_URL } from "@/lib/constants";
+import { HiBolt, HiCheck } from "react-icons/hi2";
 import { PokerCards } from "./poker-cards";
 
 const BULLETS = [
@@ -15,8 +16,12 @@ export function Hero() {
     <section className="border-b-2 border-border bg-accent/30">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
-          <Badge variant="surface" className="mb-4 border-2 border-border">
-            ⚡ Realtime · no sign-up
+          <Badge
+            variant="surface"
+            className="mb-4 inline-flex items-center gap-1.5 border-2 border-border"
+          >
+            <HiBolt className="size-3.5" aria-hidden="true" />
+            Realtime · no sign-up
           </Badge>
 
           <Text as="h1" className="mb-5 max-w-xl">
@@ -67,7 +72,7 @@ export function Hero() {
           <ul className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             {BULLETS.map((item) => (
               <li key={item} className="flex items-center gap-1.5">
-                <span aria-hidden="true">✓</span>
+                <HiCheck className="size-4 shrink-0" aria-hidden="true" />
                 {item}
               </li>
             ))}

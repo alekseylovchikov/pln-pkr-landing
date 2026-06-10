@@ -1,44 +1,56 @@
 import { Card } from "@/components/retroui/Card";
 import { Text } from "@/components/retroui/Text";
+import type { IconType } from "react-icons";
+import { FaCrown, FaFeather } from "react-icons/fa6";
+import {
+  HiArrowPath,
+  HiBolt,
+  HiChartBar,
+  HiLink,
+} from "react-icons/hi2";
 
-const FEATURES = [
+const FEATURES: {
+  icon: IconType;
+  title: string;
+  description: string;
+}[] = [
   {
-    icon: "⚡",
+    icon: HiBolt,
     title: "Realtime voting",
     description:
       "Cards appear instantly via Socket.IO. You can see who has voted, but not what — until the reveal.",
   },
   {
-    icon: "🔗",
+    icon: HiLink,
     title: "A link instead of a login",
     description:
       "Drop #room=ABC123 into chat — the team joins in one click. No email, no passwords.",
   },
   {
-    icon: "👑",
+    icon: FaCrown,
     title: "One admin keeps order",
     description:
       "The creator controls reveal, reset, and can kick a participant. When the admin leaves, the room closes.",
   },
   {
-    icon: "📊",
+    icon: HiChartBar,
     title: "Honest stats",
     description:
       "Average, median, min/max and the team’s agreement %. No more “I think we agreed.”",
   },
   {
-    icon: "🔄",
+    icon: HiArrowPath,
     title: "Auto-reconnect",
     description:
       "Closed the tab or lost Wi-Fi? You’re back in the same room under the same name.",
   },
   {
-    icon: "🪶",
+    icon: FaFeather,
     title: "No database",
     description:
       "Room state lives in server memory, identity in localStorage. Deploy it anywhere.",
   },
-] as const;
+];
 
 export function Features() {
   return (
@@ -55,26 +67,30 @@ export function Features() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((feature) => (
-            <Card key={feature.title} className="block w-full">
-              <Card.Header>
-                <span className="mb-3 inline-flex size-11 items-center justify-center border-2 border-border bg-accent text-xl shadow-sm">
-                  {feature.icon}
-                </span>
-                <Card.Title>{feature.title}</Card.Title>
-                <Card.Description>
-                  {feature.title === "A link instead of a login" ? (
-                    <>
-                      Drop <code>#room=ABC123</code> into chat — the team joins
-                      in one click. No email, no passwords.
-                    </>
-                  ) : (
-                    feature.description
-                  )}
-                </Card.Description>
-              </Card.Header>
-            </Card>
-          ))}
+          {FEATURES.map((feature) => {
+            const Icon = feature.icon;
+
+            return (
+              <Card key={feature.title} className="block w-full">
+                <Card.Header>
+                  <span className="mb-3 inline-flex size-11 items-center justify-center border-2 border-border bg-accent text-xl shadow-sm">
+                    <Icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <Card.Title>{feature.title}</Card.Title>
+                  <Card.Description>
+                    {feature.title === "A link instead of a login" ? (
+                      <>
+                        Drop <code>#room=ABC123</code> into chat — the team joins
+                        in one click. No email, no passwords.
+                      </>
+                    ) : (
+                      feature.description
+                    )}
+                  </Card.Description>
+                </Card.Header>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

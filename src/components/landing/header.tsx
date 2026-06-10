@@ -1,13 +1,14 @@
 import { Button } from "@/components/retroui/Button";
 import { APP_URL, NAV_LINKS } from "@/lib/constants";
+import { BrandIcon } from "./brand-icon";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-border bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <a href="#" className="flex items-center gap-2.5">
-          <span className="flex size-8 items-center justify-center border-2 border-border bg-primary text-sm shadow-sm">
-            ♠
+          <span className="flex size-8 items-center justify-center border-2 border-border bg-primary text-sm text-primary-foreground shadow-sm">
+            <BrandIcon className="size-4" />
           </span>
           <span className="font-head text-base font-bold">Planning Poker</span>
         </a>
